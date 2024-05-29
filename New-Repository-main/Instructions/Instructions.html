@@ -1,0 +1,331 @@
+{{ extends "global/Slider.html" }}
+
+
+
+{{ block Slides }}
+<!-- <input type="hidden" id="no-checks"> -->
+
+    <!-- Slide 1: Experiment in Short --> 
+    <div class="slide"> 
+        <div class="text-container">
+            <h2> The experiments - in short: </h2>
+            <ul>
+                <li>In this study you will make purchasing decisions.</li>
+                <li>The products that you will observe are <div class="greenbold">not real</div>.</li>
+                <li>There is no physical product, but your <u>decisions</u> will have <div class="greenbold">real consequences</div>.</li>
+                <li>Depending on your <u>decisions</u> you can obtain an additional bonus payment of up to <div class="greenbold"> €XX</div> and help the environment by <div class="greenbold"> planting trees in a location of your choosing.</div></li>
+                <li>The trees will be planted by: <img src="{% static C.OneTreePlanted %}" alt="OneTreePlanted" width="200"height="auto"></li>
+                <li>There are many locations where the trees could be planted.</li>
+                <li>Would you like to choose where to plant the trees? 
+                    <input name="bClickedLocation" id="bClickedLocation" type="hidden" value="false">
+                    <select name="sTreesLocation" id="sTreesLocation" class="dropdown">
+                        <option value="Anywhere"> Anywhere </option>
+                        <option value="Needed"> Where they are needed most </option>
+                        <option style="font-weight: bold" value="North America">North America</option>
+                        <option value="CA">Canada</option>
+                        <option value="US">United States</option>
+                        <option style="font-weight: bold" value="Latin America">Latin America</option>
+                        <option value="Amazon Rainforest">Amazon Rainforest</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="Haiti">Haiti</option>
+                        <option value="The Andes Mountains"> The Andes Mountains</option>
+                        <option value="Guatemala">Guatemala</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Honduras">Honduras</option>
+                        <option value="Mexico">Mexico</option>
+                        <option value="Peru">Peru</option>
+                        <option style="font-weight: bold" value="Africa">Africa</option>
+                        <option value="Kenya">Kenya</option>
+                        <option value="Ethiopia">Ethiopia</option>
+                        <option value="Ghana">Ghana</option>
+                        <option value="Rwanda">Rwanda</option>
+                        <option value="Uganda">Uganda</option>
+                        <option value="Tanzania">Tanzania</option>
+                        <option value="Malawi">Malawi</option>
+                        <option value="Cotê D'Ivoire">Cotê D'Ivoire</option>
+                        <option style="font-weight: bold" value="Asia">Asia</option>
+                        <option value="Indonesia">Indonesia</option>
+                        <option value="India">India</option>
+                        <option value="Phillippines">Phillippines</option>
+                        <option value="Vietnam">Vietnam</option>
+                        <option style="font-weight: bold" value="Europe">Europe</option>
+                        <option value="Iceland">Iceland</option>
+                        <option value="Romania">Romania</option>
+                        <option value="Spain">Spain</option>
+                        <option value="Denmark">Denmark</option>
+                        <option style="font-weight: bold" value="The Pacific">Oceania</option>
+                        <option value="Australia">Australia</option>
+                        <option value="New Zealand">New Zealand</option>
+                    </select>
+                </li>
+            </ul>
+            <i>Press → to continue reading </i>
+        </div>
+    </div>
+
+
+    <!-- Slide 2: Decisions -->
+    <div class="slide">
+        <div class="text-container">
+            <h2> Your Decision </h2>
+            <p> In this experiment you will:</p>
+            <ul>
+                <li> Make multiple purchasing decisions (<div class="greenbold"> XX rounds</div>).</li>
+                <li> In each round, you will see <div class="greenbold">2 products</div> and their characteristics.</li>
+                <li> These products are not real, but their benefits are. </li>
+                <li> The next slide explains the benefits and characteristics of the products.</li>
+            </ul>
+            <i>Press → to continue reading </i>
+        </div>
+        <div class="img-container">
+            {{if pos_treatment}}
+            <div class="img-container"> <img src="{{ static C.revealed_pos }}" class="img-instructions" alt="example of decision screen" id="img-example1"> </div>
+            {{else}}
+            <div class="img-container"> <img src="{{ static C.revealed_neg }}" class="img-instructions" alt="example of decision screen" id="img-example1"> </div>
+            {{endif}}
+        </div>
+    </div>
+
+    
+    <!-- Slide 3: Product Characteristics -->
+    <div class="slide">
+        <div class="text-container"> 
+            <h2> Product Characteristics </h2>
+            <ul>
+                <!--Price-->
+                <li>
+                    <strong>Price:</strong> This is the cost you need to pay for the product. The price is in <b>€</b>.
+                </li>
+                    <div class="slide2-description">Higher Price <span>&#8594;</span> lower bonus payments.</div>
+            <!-- Quality-->
+                <li>
+                    <strong>Quality:</strong> 1-3 star (<img src="{% static C.star_symbol %}" width="20"height="auto"/>) rating.
+                    Products
+                    with more stars (<img src="{% static C.star_symbol %}"width="20"height="auto"/>) are more likely to have
+                    higher quality.
+                </li>
+                    <div class="slide2-description">Higher quality <span>&#8594;</span> higher bonus payments.</div>
+                <!--Ecolabel-->
+                {{ if pos_treatment }}
+                <li>
+                    <b>Eco-Label:</b> 1-3 leaf (<img src="{% static C.leaf_symbol %}"width="20"height="auto"/>) rating.
+                    Products
+                    with more leaves (<img src="{% static C.leaf_symbol %}"width="20"height="auto"/>) are more likely
+                    to be more sustainable.
+                </li>
+                    <div class="slide2-description">Higher sustainability <span>&#8594;</span> more trees planted.</div>
+                {{ else }}
+                <!--Negative Ecolabel--> 
+                <li>
+                    <b>Negative Eco-Label:</b> 1-3 negative eco (<img src="{% static C.neg_symbol %}"width="20"height="auto"/>) rating.
+                    Products
+                    with more negative eco-labels (<img src="{% static C.neg_symbol %}"width="20"height="auto"/>) are more likely
+                    to be less sustainable.
+                </li>
+                    <div class="slide2-description"> Lower sustainability <span>&#8594;</span> less trees planted.</div>
+             <!--text1-->
+             {{ endif }}
+            </ul>
+            <i>Press → to continue reading </i>
+        </div>
+    </div>
+
+
+
+    <!-- Slide 4: Purchasing Platform -->
+    <div class="slide">
+        <div class="text-container">
+            <h2> Purchasing Platform </h2>
+            <p> 
+                The product characteristics (Price, Quality and Sustainability) for each product will be
+                hidden
+            </p>
+            <p>
+            To reveal the information, all you need to do is to move your mouse on top it 
+            and the
+            information will be revealed. 
+            </p>
+             <p>
+                <div class="greenbold">Here is an example.</div>
+             </p>
+         </div>
+         <!--Gif instead of Hoover-->
+         {{if pos_treatment}}
+            <div class="img-container"> <img class="gif-instructions" src="{% static C.TreatPos %}" />
+                {{else}}   
+            <div class="img-container"> <img class="gif-instructions" src="{% static C.TreatNeg %}" />
+                {{endif}}
+            </div>
+    </div>
+
+    <!--Slide 5: one more time '' -->
+   <div class="slide">
+    <div class="text-container">
+        <h2> Product Selection </h2>
+        <ul>
+            <li> Once you have decided, choose the product you want by clicking on the buttons below ("Product 1", "Product 2"). </li>
+            <li> If you didn't quite get it yet, don't worry! There will be <div class="greenbold">3 practice rounds</div>
+                before the real
+                experiment starts. </li>
+            <li> At the end of the experiment, we will choose <u>1 of the rounds</u> (randomly), and you will
+                receive the
+                benefits of that round. Practice rounds will never be selected. </li>
+            <li> You will never pay more than what you get, so don't worry, <b></b>you can't lose money!</b> </li>
+        </ul>
+    </div>
+        {{if pos_treatment}}
+        <div class="img-container"> <img class="img-instructions" src="{% static C.circled_task_pos %}" />
+         {{else}}
+         <div class="img-container"> <img class="img-instructions" src="{% static C.circled_task_neg %}" />
+         {{endif}}
+    </div>
+</div>
+
+
+    <!-- Slide 6: Control Questions -->
+    <div class="slide"> 
+        <div class="text-container questions-container">
+            <h2> Control Questions </h2>
+            <ul>
+                <!--Question 1-->
+                <li>
+                    <div class="inst-question">
+                        <!-- Question-->
+                        {{ if pos_treatment}}
+                        <label for="Q1"> What product has the heighest sustainability rating: (A) <img src="{%static C.three_leaf%}"width="80"height="auto"/>, (B) <img src="{%static C.two_leaf%}"width="80"height="auto"/> or (C) <img src="{%static C.one_leaf%}"width="80"height="auto"/> (Answer: a)</label>
+                        {{else}}
+                        <label for="Q1"> What product has the heighest sustainability rating: (A) <img src="{%static C.one_neg%}"width="80"height="auto"/>, (B) <img src="{%static C.two_neg%}"width="80"height="auto"/> or (C) <img src="{%static C.three_neg%}"width="80"height="auto"/> (Answer: a)</label>
+                        {{endif}}
+                    </div>
+                    <div class="answer-field">
+                        <select name="Q1" id="Q1" class="dropdown ControlQuestions">
+                            <option value="nothing">--Select--</option>
+                            <option value="a"> A </option>
+                            <option value="b"> B</option>
+                            <option value="c"> C </option>
+                        </select>
+                    </div>
+                </li>*
+
+                <!-- Hint -->
+                <div class="hint" id="hint1">
+                    Incorrect: Go back to the third slide
+                </div>
+
+                <!--Question 2-->
+                <li>
+                    <div class="inst-question">
+                        <label for="Q2"> Decisions in this experiment can... (Answer C)  </label>
+                    </div>
+                    <div class="answer-field">
+                        <select name="Q2" id="Q2" class="dropdown ControlQuestions">
+                            <option value="nothing">--Select--</option>
+                            <option value="a"> Lead to additional payment </option>
+                            <option value="b"> Lead to planting trees </option>
+                            <option value="c"> Both  </option>
+                        </select>
+                    </div>
+                </li>
+
+                <div class="hint" id="hint2">
+                    Incorrect: Go back to the first slide
+                </div>
+
+                <!-- Question 3 -->
+                <li>
+                    <div class="inst-question">
+                        <!--Question-->
+                        <label for="Q5"> What does the '(<img src="{% static 'global/figures/one_star.png' %}"width="20"height="auto"/>)' stand for (Answer: Quality)  </label>
+                    </div>
+                    <!--drop-down menu-->
+                    <select name="Q5" id="Q5" class="dropdown ControlQuestions">
+                        <option value="nothing">--Select--</option>
+                        <option value="a"> Quality </option>
+                        <option value="b"> Price </option>
+                        <option value="c"> Sustainability </option>
+                    </select>
+                </li>
+                <div class="hint" id="hint5">
+                    Incorrect: see slide 3
+                </div>
+
+
+                <!--Question 4-->
+                <li>
+                    <div class="inst-question">
+                        <!--Question: {{C.iNumTrials}}-->
+                        <label for="Q4"> How many practice trials are there (Answer: 3)</label>
+                    </div>
+                    <div class="answer-field">
+                        <!-- Input field -->
+                        <input type="text" name="Q7" id="Q7" class="ControlQuestions">
+                    </div>
+                </li>
+                <div class="hint" id="hint7">
+                    Incorrect: see the previous slide
+                </div>
+                <li>
+            <!-- Submit answers and Next button (next button appears when user answers all questions correctly)-->
+                <button type="button" id="submitAnswer" class="button" onclick="ValidateSaveSubmit()"> Submit </button>
+        </div>
+        
+    </div>
+    
+{{ endblock }}
+
+{{ block app_styles }}
+<link href="{% static 'global/css/global.css' %}" rel="stylesheet">
+
+<style>
+    /* If there are small things, you can always define them within this page. If too much style changes, make a new css file */
+    #img-example {
+        width: 50vw;
+        height: auto;
+    }
+
+    #img-example2 {
+        width: 75vw;
+        height: auto;
+    }
+
+    .text-container {
+        font-size: larger;
+    }
+</style>
+{{ endblock }}
+
+{{ block app_scripts }}
+<script>
+
+  const lSolutions    =  js_vars.lSolutions;     // Solutions for Check-up questions in the last slide
+
+  function ValidateSaveSubmit() {
+    validateAnswers();
+  }
+
+  window.addEventListener("DOMContentLoaded", ()=>{
+    // Get divs to add tooltips
+    let lGreen = document.getElementsByClassName("greenbold");
+    let lBlue = document.getElementsByClassName("bluebold");
+    let lRed = document.getElementsByClassName("redbold");
+    // Green tooltip
+    for (let i=0;i<lGreen.length;i++) {
+        let span = document.createElement('span')
+        span.innerHTML = "You";
+        span.classList.add("tooltiptext")
+        lGreen[i].appendChild(span);
+    }
+
+    // Blue tooltip
+    for (let i=0;i<lBlue.length;i++) {
+        let span = document.createElement('span')
+        span.innerHTML = "Previous participants";
+        span.classList.add("tooltiptext")
+        lBlue[i].appendChild(span);
+    }
+  })
+</script>
+
+{{ endblock }}
+
+
