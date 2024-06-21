@@ -1,0 +1,305 @@
+{{ extends "global/Slider.html" }}
+
+{{ block Slides }}
+<!-- <input type="hidden" id="no-checks"> -->
+
+    <!-- Slide 1: Experiment in Short --> 
+    <div class="slide"> 
+        <div class="text-container">
+            <h2> The Experiment - In short </h2>
+                <li> In this experiment, you will make several fictitious purchasing decisions.</li> 
+                <li> Though there's no physical product, your choices will have real consequences. </li> 
+                <li> Based on your decisions, you can earn a payment of up to <span class="greenbold"> €25 </span>.</li>
+                <li> Based on your decisions, a maximum of <span class="greenbold"> 17 trees </span> can be planted.</li>
+                <li> At the end of the experiment, one random participant will be selected to receive the payment. 
+                <li> Additionally, trees will be planted in their prefered location.</li> 
+                <li> Rest assured, <span class="greenbold">you can't lose money during this experiment</span>. </li>
+                <li> The trees will be planted by: <a href="https://onetreeplanted.org/">
+                    <img src="{% static C.OneTreePlanted %}" alt="OneTreePlanted" width="150" height="auto"></a>.</li>
+                    <p></p>    
+                    <p>Would you like to choose where the trees would be planted?</p>
+                    <input name="bClickedLocation" id="bClickedLocation" type="hidden" value="false">
+                    <select name="sTreesLocation" id="sTreesLocation" class="dropdown">
+                        <option value="Anywhere"> Anywhere </option>
+                        <option value="Needed"> Where they are needed most </option>
+                        <option style="font-weight: bold" value="North America">North America</option>
+                        <option value="CA">Canada</option>
+                        <option value="US">United States</option>
+                        <option style="font-weight: bold" value="Latin America">Latin America</option>
+                        <option value="Amazon Rainforest">Amazon Rainforest</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="Haiti">Haiti</option>
+                        <option value="The Andes Mountains"> The Andes Mountains</option>
+                        <option value="Guatemala">Guatemala</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Honduras">Honduras</option>
+                        <option value="Mexico">Mexico</option>
+                        <option value="Peru">Peru</option>
+                        <option style="font-weight: bold" value="Africa">Africa</option>
+                        <option value="Kenya">Kenya</option>
+                        <option value="Ethiopia">Ethiopia</option>
+                        <option value="Ghana">Ghana</option>
+                        <option value="Rwanda">Rwanda</option>
+                        <option value="Uganda">Uganda</option>
+                        <option value="Tanzania">Tanzania</option>
+                        <option value="Malawi">Malawi</option>
+                        <option value="Cotê D'Ivoire">Cotê D'Ivoire</option>
+                        <option style="font-weight: bold" value="Asia">Asia</option>
+                        <option value="Indonesia">Indonesia</option>
+                        <option value="India">India</option>
+                        <option value="Phillippines">Phillippines</option>
+                        <option value="Vietnam">Vietnam</option>
+                        <option style="font-weight: bold" value="Europe">Europe</option>
+                        <option value="Iceland">Iceland</option>
+                        <option value="Romania">Romania</option>
+                        <option value="Spain">Spain</option>
+                        <option value="Denmark">Denmark</option>
+                        <option style="font-weight: bold" value="The Pacific">Oceania</option>
+                        <option value="Australia">Australia</option>
+                        <option value="New Zealand">New Zealand</option>
+                    </select>
+                </li>
+                <p></p>
+                <p><i> Press → to continue reading </i></p>
+        </div>
+    </div>
+    
+
+<!-- Slide 2: Decisions -->
+<div class="slide">
+    <div class="text-container">
+        <h2> Purchasing Decisions </h2>
+            <li> You'll start with an endowment of <span class="greenbold"> €25 </span>. </li>
+            <li> With the endowment you need to buy products. </li>
+            <li> There will be <span class="greenbold"> 54 rounds </span>.</li>
+            <li> In each round, you will see <span class="greenbold"> 2 products </span>. 
+            <li> You'll make <span class="greenbold"> 1 </span> purchase per round.</li>
+            <li> The products differ in certain characteristics. </li> 
+            <li> The products aren't real, but the benefits of your decisions are. </li>
+            <li> The next page will explain the characteristics and benefits.</li>
+                <p></p>
+                <p><i> Press → to continue reading </i></p>
+    </div>
+    <div class="img-container">
+        <div class="img-container"> 
+            <img src="{{ static C.revealed }}" class="img-instructions" alt="example of decision screen" id="img-example1">
+        </div>
+    </div>
+</div>
+
+
+    
+<!-- Slide 3: Product Characteristics -->
+<div class="slide">
+    <div class="text-container"> 
+        <h2> Product Characteristics </h2>
+        <i>Info:</i> 
+        <li> Each round presents two products of the same type (bananas, onions, or apples).</li>
+        <li> The products differ in certain characteristics.</li>
+
+        <p></p>
+        <i>Characteristics:</i>
+            <!-- Credentials -->
+            <li>
+                <span class="greenbold">Label:</span> Indicates which authority approved the information. There are two types: <ul><p></p><p> (1) Government label: <img src="{% static C.label_government %}" width="50" height="auto"/>, (2) Commercial label: <img src="{% static C.label_commercial %}" width="50" height="auto"/>.
+                </p></ul>               
+            <!-- Price -->
+            <li>
+                <span class="greenbold">Price:</span> Varies between three types of information: <ul><p></p><p>(1) Selling price (€/kg), (2) Price structure (€/kg), (3) Price rating (1-3, where 1 is cheap and 3 is expensive).</p></ul>
+                <div class="slide2-description"> Higher price <span>&#8594;</span> lower payment.</div>
+                <p></p>
+                <!-- Sustainability -->
+            <li>
+                <span class="greenbold">Sustainability:</span> Rated from 1 to 3 leaves (<img src="{% static C.leaf_symbol %}" width="30" height="auto"/>),
+                with 3 leaves being most sustainable.
+                <p></p>
+                <div class="slide2-description"> Lower sustainability <span>&#8594;</span> less trees planted.</div>  
+                <p></p>    
+                <p><i> Press → to continue reading </i></p>
+        </ul>
+    </div>
+</div>
+
+
+    <!-- Slide 4: Purchasing Platform -->
+    <div class="slide">
+        <div class="text-container">
+            <h2> Purchasing Platform </h2>
+            <li> The product's characteristics will be hidden initially.</li> 
+            <li> Hover over the area of interest to reveal the information. </li> 
+            <li> If you move the cursor away, the information will hide again.</li>
+            </p>
+             <p>
+                <span class="greenbold">An example is provided on the right side of your screen.</span>
+             </p>
+            <p><i> Press → to continue reading </i></p>
+            </div>
+         <!--Gif instead of Hoover-->
+            <div class="img-container"> <img class="gif-instructions" src="{% static C.hoover %}" />
+            </div>
+    </div>
+
+    <!--Slide 5: one more time '' -->
+   <div class="slide">
+    <div class="text-container">
+        <h2> Product Selection </h2>
+            <li> Choose a product by clicking 'Product A' or 'Product B'. </li> 
+            <li> There will be <span class="greenbold"> 3 practice rounds</span>. </li> 
+            <li> Note that practice rounds are not eligible for the payment.</li>
+            <li> The next page contains some control questions. </li> 
+            <p></p>
+            <i> Press → to continue to the control questions </i>    
+    </div>
+        <div class="img-container"> <img class="img-instructions" src="{% static C.circled_task %}" />
+    </div>
+</div>
+
+
+    <!-- Slide 6: Control Questions -->
+    <div class="slide"> 
+        <div class="text-container questions-container">
+            <h2> Control Questions </h2>
+                <!--Question 1-->
+                <li>
+                    <div class="inst-question">
+                        <!-- Question-->
+                        <label for="Q1"> Which product has the highest sustainability rating: (a) <img src="{%static C.three_leaf%}"width="80"height="auto"/>, (b) <img src="{%static C.two_leaf%}"width="80"height="auto"/> or (c) <img src="{%static C.one_leaf%}"width="80"height="auto"/> </label>
+                    </div>
+                    <u><br></u>
+                    <div class="answer-field">
+                        <select name="Q1" id="Q1" class="dropdown ControlQuestions">
+                            <option value="nothing">--Select--</option>
+                            <option value="a"> a </option>
+                            <option value="b"> b </option>
+                            <option value="c"> c </option>
+                        </select>
+                    </div>
+                </li>
+
+                <!-- Hint -->
+                <div class="hint" id="hint1">
+                    Incorrect: Go back to the third page
+                </div>
+
+                <!--Question 2-->
+                <li>
+                    <div class="inst-question">
+                        <!-- Question-->
+                        <label for="Q2"> Which product is approved by the government: (a) <img src="{%static C.label_commercial%}"width="80"height="auto"/>, (b) <img src="{%static C.label_government%}"width="80"height="auto"/> 
+                        </label>
+                    </div>
+                    <div class="answer-field">
+                        <select name="Q2" id="Q2" class="dropdown ControlQuestions">
+                            <option value="nothing">--Select--</option>
+                            <option value="a"> a </option>
+                            <option value="b"> b </option>
+                        </select>
+                    </div>
+                </li>
+
+                <u><br></u>
+                <!-- Hint -->
+                <div class="hint" id="hint2">
+                    Incorrect: Go back to the third page
+                </div>
+
+                <!-- Question 3 -->
+                <li>
+                    <div class="inst-question">
+                        <!--Question-->
+                        <label for="Q4"> How can you reveal information? </label>
+                    </div>
+                    <!--drop-down menu-->
+                    <select name="Q4" id="Q4" class="dropdown ControlQuestions">
+                        <option value="nothing">--Select--</option>
+                        <option value="A"> By moving your mouse cursor over the characteristics </option>
+                        <option value="B"> By clicking </option>
+                        <option value="C"> Both </option>
+                    </select>
+                </li>
+                
+                <u><br></u>
+                <div class="hint" id="hint4">
+                    Incorrect: Go back to the fourth page
+                </div>
+
+                <!--Question 4 -->
+                <li>
+                    <div class="inst-question">
+                        <!--Question: {{C.iNumTrials}}-->
+                        <label for="Q5"> How many practice trials are there </label>
+                    </div>
+                    <div class="answer-field">
+                        <!-- Input field -->
+                        <input type="text" name="Q5" id="Q5" class="ControlQuestions">
+                    </div>
+                </li>
+                <div class="hint" id="hint5">
+                    Incorrect: Go back to the previous page
+                </div>
+                <li>
+            <!-- Submit answers and Next button (next button appears when user answers all questions correctly)-->
+            <u><br></u>
+            <button type="button" id="submitAnswer" class="button" onclick="ValidateSaveSubmit()"> Submit </button>
+            <u><br></u>
+            <u><br></u>
+            <p><i> Press 'Submit' to continue to the pratice rounds </i></p>
+            </div>
+        
+    </div>
+    
+{{ endblock }}
+
+{{ block app_styles }}
+<link href="{% static 'global/css/global.css' %}" rel="stylesheet">
+
+<style>
+    /* If there are small things, you can always define them within this page. If too much style changes, make a new css file */
+    #img-example {
+        width: 50vw;
+        height: auto;
+    }
+
+    #img-example2 {
+        width: 75vw;
+        height: auto;
+    }
+
+    .text-container {
+        font-size: larger;
+    }
+</style>
+{{ endblock }}
+
+{{ block app_scripts }}
+<script>
+
+  const lSolutions    =  js_vars.lSolutions;     // Solutions for Check-up questions in the last slide
+
+  function ValidateSaveSubmit() {
+    validateAnswers();
+  }
+
+  window.addEventListener("DOMContentLoaded", ()=>{
+    // Get divs to add tooltips
+    let lGreen = document.getElementsByClassName("greenbold");
+    let lBlue = document.getElementsByClassName("bluebold");
+    let lRed = document.getElementsByClassName("redbold");
+    // Green tooltip
+    for (let i=0;i<lGreen.length;i++) {
+        let span = document.createElement('span')
+        span.classList.add("tooltiptext")
+        lGreen[i].appendChild(span);
+    }
+
+    // Blue tooltip
+    for (let i=0;i<lBlue.length;i++) {
+        let span = document.createElement('span')
+        span.innerHTML = "Previous participants";
+        span.classList.add("tooltiptext")
+        lBlue[i].appendChild(span);
+    }
+  })
+</script>
+
+{{ endblock }}

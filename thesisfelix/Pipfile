@@ -1,0 +1,13 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+otree = ">=5.0.0a21"
+psycopg2 = ">=2.8.4"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"
